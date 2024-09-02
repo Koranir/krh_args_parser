@@ -2,13 +2,13 @@ use std::borrow::Cow;
 
 pub trait ArgumentParser: Default {
     /// Get the application version.
-    fn version(&self) -> Cow<'static, str> {
+    fn version() -> Cow<'static, str> {
         concat!(env!("CARGO_PKG_NAME"), " v", env!("CARGO_PKG_VERSION")).into()
     }
 
     /// Get your help message.
     /// It is recommended to also print your version here using [`version`].
-    fn help(&self) -> Cow<'static, str>;
+    fn help() -> Cow<'static, str>;
 
     /// Handle a long flag.
     fn long(
